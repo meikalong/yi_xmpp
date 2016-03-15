@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="mapper"/>
+	<classpathentry kind="src" path="resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/standard-1.1.2.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/starter.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/tinder-1.2.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xercesImpl-2.9.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xml-apis-1.3.04.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xpp3-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/libidn-1.15.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mina-core-2.0.0-RC1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mina-integration-beans-2.0.0-RC1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons-configuration-1.6.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/nekopull-0.2.4.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/sitemesh-2.4.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons-digester-2.0.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/bcprov-jdk15-140.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/dwr-2.0.3.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jcip-annotations-1.0.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jta-1.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/base-yi"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

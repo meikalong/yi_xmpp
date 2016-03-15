@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<context:property-placeholder location="classpath:/privates/message.properties" />
+	<mvc:annotation-driven />
+
+	<!-- 扫描非controller -->
+	<context:component-scan base-package="com.yilv">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	
+	<!-- =============================================================== -->
+	<!-- MINA                                                            -->
+	<!-- =============================================================== -->
+
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="java.net.SocketAddress" value="org.apache.mina.integration.beans.InetSocketAddressEditor">
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="xmppHandler" class="org.androidpn.server.xmpp.net.XmppIoHandler" />
+
+	<bean id="filterChainBuilder"
+		class="org.apache.mina.core.filterchain.DefaultIoFilterChainBuilder">
+		<property name="filters">
+			<map>
+				<entry key="executor">
+					<bean class="org.apache.mina.filter.executor.ExecutorFilter" />
+				</entry>
+				<entry key="codec">
+					<bean class="org.apache.mina.filter.codec.ProtocolCodecFilter">
+						<constructor-arg>
+							<bean class="org.androidpn.server.xmpp.codec.XmppCodecFactory" />
+						</constructor-arg>
+					</bean>
+				</entry>
+				<!--
+				<entry key="logging">
+					<bean class="org.apache.mina.filter.logging.LoggingFilter" />
+				</entry>
+				-->
+			</map>
+		</property>
+	</bean>
+
+	<bean id="ioAcceptor" class="org.apache.mina.transport.socket.nio.NioSocketAcceptor"
+		init-method="bind" destroy-method="unbind">
+		<property name="defaultLocalAddress" value=":5222" />
+		<property name="handler" ref="xmppHandler" />
+		<property name="filterChainBuilder" ref="filterChainBuilder" />
+		<property name="reuseAddress" value="true" />
+	</bean>
+
+</beans>
