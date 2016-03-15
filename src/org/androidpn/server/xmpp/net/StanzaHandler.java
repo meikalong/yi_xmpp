@@ -32,7 +32,6 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.XMPPPacketReader;
 import org.jivesoftware.openfire.net.MXParser;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmpp.packet.IQ;
@@ -42,10 +41,12 @@ import org.xmpp.packet.Presence;
 import org.xmpp.packet.Roster;
 import org.xmpp.packet.StreamError;
 
+import com.yilv.base.common.utils.SpringContextHolder;
 import com.yilv.entity.Chat;
 import com.yilv.entity.NotificationMO;
 import com.yilv.push.NotificationManager;
 import com.yilv.service.NotificationService;
+import com.yilv.service.impl.NotificationServiceImpl;
 
 /**
  * This class is to handle incoming XML stanzas.
@@ -68,8 +69,7 @@ public class StanzaHandler {
 
 	private PacketRouter router;
 
-	@Autowired
-	private NotificationService notificationService;
+	private NotificationService notificationService = SpringContextHolder.getBean(NotificationServiceImpl.class);
 
 	private NotificationManager notificationManager;
 

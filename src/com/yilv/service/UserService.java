@@ -23,21 +23,21 @@ import com.yilv.entity.User;
 import com.yilv.exception.UserExistsException;
 import com.yilv.exception.UserNotFoundException;
 
-/** 
+/**
  * Business service interface for the user management.
- *
+ * 
  * @author Sehwan Noh (devnoh@gmail.com)
  */
 public interface UserService {
 
-    public User getUser(String userId);
+	public User getUser(String userId);
 
-    public List<User> getUsers();
+	public List<User> getUsers();
 
-    public User saveUser(User user) throws UserExistsException;
+	public User saveUser(User user) throws UserExistsException;
 
-    public User getUserByUsername(String username) throws UserNotFoundException;
+	public User getUserByUsername(String username) throws UserNotFoundException;
 
-    public void removeUser(Long userId);
+	public void removeUser(Long userId);
 
 }

@@ -25,10 +25,11 @@ import org.androidpn.server.xmpp.UnauthenticatedException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import com.yilv.base.common.utils.SpringContextHolder;
 import com.yilv.exception.UserNotFoundException;
 import com.yilv.service.UserService;
+import com.yilv.service.impl.UserServiceImpl;
 
 /**
  * This class is to provide the methods associated with user authentication.
@@ -43,8 +44,7 @@ public class AuthManager {
 
 	private static MessageDigest digest;
 
-	@Autowired
-	private static UserService userService;
+	private static UserService userService = SpringContextHolder.getBean(UserServiceImpl.class);
 
 	static {
 		try {

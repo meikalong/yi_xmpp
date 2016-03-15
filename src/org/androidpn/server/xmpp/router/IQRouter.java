@@ -33,13 +33,14 @@ import org.androidpn.server.xmpp.session.SessionManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.dom4j.Element;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.xmpp.packet.IQ;
 import org.xmpp.packet.JID;
 import org.xmpp.packet.PacketError;
 
+import com.yilv.base.common.utils.SpringContextHolder;
 import com.yilv.entity.NotificationMO;
 import com.yilv.service.NotificationService;
+import com.yilv.service.impl.NotificationServiceImpl;
 
 /**
  * This class is to route IQ packets to their corresponding handler.
@@ -56,8 +57,7 @@ public class IQRouter {
 
 	private Map<String, IQHandler> namespace2Handlers = new ConcurrentHashMap<String, IQHandler>();
 
-	@Autowired
-	private NotificationService notificationService;
+	private NotificationService notificationService = SpringContextHolder.getBean(NotificationServiceImpl.class);
 
 	/**
 	 * Constucts a packet router registering new IQ handlers.

@@ -26,15 +26,16 @@ import org.androidpn.server.xmpp.session.Session;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.QName;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.xmpp.packet.IQ;
 import org.xmpp.packet.JID;
 import org.xmpp.packet.PacketError;
 
+import com.yilv.base.common.utils.SpringContextHolder;
 import com.yilv.entity.User;
 import com.yilv.exception.UserExistsException;
 import com.yilv.exception.UserNotFoundException;
 import com.yilv.service.UserService;
+import com.yilv.service.impl.UserServiceImpl;
 
 /**
  * This class is to handle the TYPE_IQ jabber:iq:register protocol.
@@ -45,8 +46,7 @@ public class IQRegisterHandler extends IQHandler {
 
 	private static final String NAMESPACE = "jabber:iq:register";
 
-	@Autowired
-	private UserService userService;
+	private UserService userService = SpringContextHolder.getBean(UserServiceImpl.class);
 
 	private Element probeResponse;
 
@@ -142,6 +142,7 @@ public class IQRegisterHandler extends IQHandler {
 				}
 			} catch (Exception ex) {
 				log.error(ex);
+				ex.printStackTrace();
 				reply = IQ.createResultIQ(packet);
 				reply.setChildElement(packet.getChildElement().createCopy());
 				if (ex instanceof UserExistsException) {
