@@ -5,6 +5,9 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
         <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/mapper"/>
+        <dependent-module archiveName="base-yi.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/base-yi/base-yi">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="yi_xmpp"/>
         <property name="java-output-path" value="/yi_xmpp/WebRoot/WEB-INF/classes"/>
     </wb-module>
