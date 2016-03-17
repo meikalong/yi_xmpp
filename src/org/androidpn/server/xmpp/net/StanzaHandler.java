@@ -71,7 +71,7 @@ public class StanzaHandler {
 
 	private NotificationService notificationService = SpringContextHolder.getBean(NotificationServiceImpl.class);
 
-	private NotificationManager notificationManager;
+	private NotificationManager notificationManager = SpringContextHolder.getBean(NotificationManager.class);
 
 	/**
 	 * Constructor.
@@ -85,7 +85,6 @@ public class StanzaHandler {
 		this.serverName = serverName;
 		this.connection = connection;
 		this.router = new PacketRouter();
-		this.notificationManager = new NotificationManager();
 	}
 
 	/**

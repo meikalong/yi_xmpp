@@ -33,7 +33,6 @@ import org.androidpn.server.xmpp.net.Connection;
 import org.androidpn.server.xmpp.net.ConnectionCloseListener;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.stereotype.Component;
 import org.xmpp.packet.JID;
 
 /**
@@ -41,7 +40,6 @@ import org.xmpp.packet.JID;
  * 
  * @author Sehwan Noh (devnoh@gmail.com)
  */
-@Component
 public class SessionManager {
 
 	private static final Log log = LogFactory.getLog(SessionManager.class);
