@@ -527,6 +527,12 @@
 			<version>1.1.4c</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>sitemesh</artifactId>
+			<version>2.4.2</version>
+		</dependency>
+		
 		
 		<!-- webservice,开始 -->
 		<dependency>  
@@ -538,6 +544,11 @@
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
 			<version>3.1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>2.1</version>
 		</dependency>
 		
 		

@@ -35,5 +35,5 @@
 	</bean>
 	<import resource="classpath:META-INF/cxf/cxf.xml"/>
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
-    <jaxws:endpoint id="GreetingService" implementor="com.yilv.webservice.impl.GreetingServiceImpl" address="/GreetingService"/>
+    <jaxws:endpoint id="SendMessageService" implementor="com.yilv.webservice.impl.SendMessageServiceImpl" address="/SendMessageService"/>
 </beans>
